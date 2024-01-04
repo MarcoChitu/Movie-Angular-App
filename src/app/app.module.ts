@@ -14,6 +14,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { MovieService } from './services/movie.service';
 import { FavoritesService } from './services/favorites.service';
 import { NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,10 @@ import { NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     AppRoutingModule,
     CommonModule,
     HttpClientTestingModule,
-    
+    FavoritesComponent,
+    NgModel
   ],
-  providers: [MovieService, FavoritesService, HttpClientModule, CommonModule, BrowserModule],
+  providers: [MovieService, FavoritesService, HttpClientModule, CommonModule, BrowserModule, FavoritesComponent, NgModel],
   bootstrap: [],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

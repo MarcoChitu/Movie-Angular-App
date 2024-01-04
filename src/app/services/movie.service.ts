@@ -3,13 +3,14 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment.prod';
+import { AppConfig, AppDB } from '../app.config';
+import { AppInterface } from '../app.config.interferance';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
-  // private apiUrl = 'https://api.themoviedb.org/3';
-  // private apiKey = '182bf3f426aae60db4525f1af2bbe48a'; 
+  
   baseUrl: string;
   apiKey: string;
   language: string;
@@ -28,6 +29,11 @@ export class MovieService {
         catchError(this.handleError)
       );
   }
+
+  // searchMovies(query: string): Observable<any> {
+  //   const url = `${AppDB.apiEndpoint}/search/movie?api_key=${AppDB.apiKey}&query=${encodeURIComponent(query)}`;
+  //   return this.http.get<any>(url);
+  // }
   
   searchMovies(query: string): Observable<any> {
     const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&query=${encodeURIComponent(query)}`;
@@ -38,14 +44,6 @@ export class MovieService {
   // searchMovies(searchStr: string, page: number): Observable<any> {
   //   return this.http.get(`${this.baseUrl}search/movie?api_key=${this.apiKey}&query=${searchStr}&page=${page}&language=${this.language}&region=${this.region}`)
   // }
-
-  getGenres(): Observable<any> {
-    return this.http.get(`${this.baseUrl}genre/movie/list?api_key=${this.apiKey}&language=${this.language}`)
-  }
-
-  getMoviesByGenre(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}genre/${id}/movies?api_key=${this.apiKey}`)
-  }
 
   getMovie(id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}movie/${id}?api_key=${this.apiKey}`)

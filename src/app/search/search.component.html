@@ -1,7 +1,7 @@
 <div class="search-container">
   <!-- Search Input -->
   <input type="text"
-         
+        [(ngModel)]="searchText"
          (input)="onSearchChange()" 
          placeholder="Search movies..." 
          aria-label="Search movies" />

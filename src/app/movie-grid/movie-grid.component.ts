@@ -3,7 +3,6 @@ import { Movie } from '../models/movie.model';
 import { MovieService } from '../services/movie.service';
 import { FavoritesService } from '../services/favorites.service'; 
 import { NgForOf, NgIf} from "@angular/common";
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-movie-grid',

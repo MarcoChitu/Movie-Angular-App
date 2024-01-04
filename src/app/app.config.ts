@@ -5,13 +5,16 @@ import { routes } from './app.routes';
 import {provideHttpClient, withFetch} from "@angular/common/http";
 import {provideAnimations} from "@angular/platform-browser/animations";
 import { provideServiceWorker } from '@angular/service-worker';
+import { environment } from '../environments/environment.prod';
+import { AppInterface } from './app.config.interferance';
 
-export const appConfig: ApplicationConfig = {
+export const AppDB: AppInterface = {
+  apiEndpoint: 'https://api.themoviedb.org/3',
+  apiKey: environment.theMovieDBApi,
+}
 
-  // providers: [provideRouter(routes), provideServiceWorker('ngsw-worker.js', {
-  //       enabled: !isDevMode(),
-  //       registrationStrategy: 'registerWhenStable:30000'
-  //   })]
+export const AppConfig: ApplicationConfig = {
+  
   providers: [provideRouter(routes), provideHttpClient(withFetch()), provideAnimations(), provideServiceWorker('ngsw-worker.js', {
         enabled: !isDevMode(),
         registrationStrategy: 'registerWhenStable:30000'

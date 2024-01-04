@@ -15,16 +15,21 @@ import { CommonModule } from '@angular/common';
   imports: [FooterComponent, MovieGridComponent, SearchComponent, CommonModule],
 })
 export class AppComponent  implements OnInit {
-  @Output() featureSelected = new EventEmitter<string>();
-  title = 'Movie Lobby Application';
   movies: Movie[] = [];
+  
+  // onNavigate(feature: string) {
+  //   this.loadedFeature = feature;
+  // }
+  // @Output() featureSelected = new EventEmitter<string>();
+  title = 'Movie Lobby Application';
+  // movies: Movie[] = [];
   favorites: Movie[] = []; 
   isFavoriteView: boolean = false;
 
-  onSelect(feature: string) {
-    this.featureSelected.emit(feature);
-  }
-  
+  // onSelect(feature: string) {
+  //   this.featureSelected.emit(feature);
+  // }
+
   constructor(
     private movieService: MovieService,
     private favoritesService: FavoritesService
@@ -54,8 +59,8 @@ export class AppComponent  implements OnInit {
   }
 
   // Updating the movie list from search component
-  onMoviesUpdate(movies: Movie[]): void {
-    this.movies = movies;
+  onMoviesUpdate(newMovies: Movie[]): void {
+    this.movies = newMovies;
   }
 
   // Toggle favorite for a movie

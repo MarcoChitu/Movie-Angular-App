@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, Injectable, OnInit } from '@angular/core';
 import { MovieService } from '../services/movie.service';
 import { Movie } from '../models/movie.model';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgModel } from '@angular/forms';
 
 // @Injectable()
 @Component({
@@ -9,10 +9,17 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
   standalone: true,
+  imports: [
+    FormsModule
+  ]
 })
 export class SearchComponent implements OnInit{
+  searchText: string = '';
   searchTerm: string = '';
-  @Output() updateMovies = new EventEmitter<Movie[]>();
+  @Output() searchChange = new EventEmitter<string>();
+  @Output() clearSearchEvent = new EventEmitter<void>();
+  @Output() updateMovies = new EventEmitter<any[]>();
+  
 
   constructor(private movieService: MovieService) {}
 
@@ -20,30 +27,42 @@ export class SearchComponent implements OnInit{
     
   }
 
+  // onSearchChange(value: string): void {
+  //   this.searchText = value; 
+  //   this.searchChange.emit(this.searchText); 
+  // }
+
   onSearchChange(): void {
     if (this.searchTerm.trim()) {
       this.movieService.searchMovies(this.searchTerm.trim()).subscribe({
-        next: (data) => {
+        next: (response) => {
+          this.updateMovies.emit(response.results); // Emit the search results
         },
         error: (error) => {
-          console.error('There was an error!', error);
+          console.error('There was an error fetching the search results:', error);
         }
       });
+    } else {
+      this.updateMovies.emit([]); 
     }
   }
 
-  resetSearch(): void {
-    this.searchTerm = '';
-    this.updateMovies.emit([]);
+  // onSearchChange(): void {
+  //   if (this.searchTerm.trim()) {
+  //     this.movieService.searchMovies(this.searchTerm.trim()).subscribe({
+  //       next: (data) => {
+  //       },
+  //       error: (error) => {
+  //         console.error('There was an error!', error);
+  //       }
+  //     });
+  //   }
+  // }
 
-    // this.movieService.getPopularMovies().subscribe({
-    //   next: (data) => {
-    //     this.updateMovies.emit(data.results);
-    //   },
-    //   error: (error) => {
-    //     console.error('There was an error resetting the search!', error);
-    //   }
-    // });
+  resetSearch() {
+    this.searchText = '';
+    this.searchChange.emit(this.searchText);
+    this.clearSearchEvent.emit();
   }
 
   executeSearch(): void {

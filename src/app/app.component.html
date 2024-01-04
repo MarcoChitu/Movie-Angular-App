@@ -8,10 +8,10 @@
       <li><a href="/favorites" (click)="showFavorites()">Favorites</a></li>
     </ul>
   </nav>
-
-  <!-- Search Component -->
-  <app-search (updateMovies)="onMoviesUpdate($event)"></app-search>
-
+  
+    <!-- Search Component -->
+    <app-search (updateMovies)="onMoviesUpdate($event)"></app-search>
+    
   <!-- Movie Display Area -->
   <div *ngIf="!isFavoriteView">
     <app-movie-grid [movies]="movies" (toggleFavorite)="toggleFavorite($event)"></app-movie-grid>
@@ -20,13 +20,6 @@
   <div *ngIf="isFavoriteView">
     <app-movie-grid [movies]="favorites" (toggleFavorite)="toggleFavorite($event)"></app-movie-grid>
   </div>
-
-  
-
-  <!-- Footer -->
-  <!-- <footer class="app-footer">
-    <p>© 2024 Movie Lobby</p>
-  </footer> -->
 
   <app-footer></app-footer>
 </div>

@@ -24,6 +24,7 @@ export class FavoritesService {
   addToFavorites(movie: Movie): void {
     if (!this.favorites.some(f => f.id === movie.id)) {
       this.favorites.push(movie);
+      // console.log('Favorites: ' + this.favorites)
     }
   }
 
