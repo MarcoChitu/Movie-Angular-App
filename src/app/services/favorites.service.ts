@@ -7,19 +7,8 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class FavoritesService {
-  // baseUrl: string;
-  // apiKey: string;
-  // language: string;
-  // region: string;
-
+  
   private favorites: Movie[] = [];
-
-  // constructor(private http: HttpClient) {
-  //   this.baseUrl = 'https://api.themoviedb.org/3/';
-  //   this.apiKey = environment.theMovieDBApi;
-  //   this.language = 'en-US';
-  //   this.region = 'US'
-  // }
 
   addToFavorites(movie: Movie): void {
     if (!this.favorites.some(f => f.id === movie.id)) {
