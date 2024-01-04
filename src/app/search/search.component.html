@@ -1,1 +1,16 @@
-<input type="text" (input)="onSearchChange($event.target.value)" placeholder="Search movies...">
+<div class="search-container">
+  <!-- Search Input -->
+  <input type="text"
+         
+         (input)="onSearchChange()" 
+         placeholder="Search movies..." 
+         aria-label="Search movies" />
+
+  <!-- Clear Button -->
+  <button (click)="resetSearch()" aria-label="Clear search">Clear</button>
+
+  <button (click)="executeSearch()" aria-label="Search movies">Search</button>
+</div>
+
+
+<!-- [(ngModel)]="searchTerm"  -->

@@ -1,0 +1,11 @@
+<footer class="footer">
+  <div>Developed by <span class="footer_marco">Marco CHITU </span></div>
+  <a *ngFor="let social of socialData" [href]="social.url"
+     target="_blank" rel="noopener noreferrer"
+     [attr.aria-label]="'Marco Chitu ' + social.name"
+     [title]="social.name"
+     class="footer__social"
+  >
+    <img class="social" [src]="social.img" [alt]=" " loading="lazy">
+  </a>
+</footer>

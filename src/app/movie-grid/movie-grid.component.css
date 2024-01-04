@@ -1,0 +1,128 @@
+/* General Styling for Movie Grid - Optimized for Mobile */
+.movie-grid {
+  display: grid;
+  grid-gap: 15px;
+  padding: 10px; 
+  grid-template-columns: repeat(2, 1fr);
+  cursor: pointer;
+}
+
+.movie-card {
+  background-color: #fff; 
+  /* border: 1px solid #524e4e; */
+  box-shadow: inset 0 0 0 3px #524e4e; 
+  border-radius: 10px; 
+  overflow: hidden; 
+}
+
+.movie-card img {
+  width: 100%; 
+  display: block; 
+  height: auto;
+  transition: all 0.4s;
+}
+
+.movie-card img:hover {
+  transform: scale(1.1);
+}
+
+.movie-info {
+  padding: 10px;
+  text-align: center; 
+}
+
+.movie-info h3 {
+  margin-bottom: 5px;
+}
+
+/* Styling for Favorite Buttons and Icons */
+.btn--outline {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-top: 10px; 
+  background-color: #007bff; 
+  color: white;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.favorite-button:hover {
+  background-color: #0056b3; 
+}
+
+.favorite-icon {
+  display: inline-block;
+  margin-right: 5px; 
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #07335c;
+  /* Trick to add border inside */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+/* Responsive Layout for Larger Screens */
+@media (min-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .movie-grid {
+    grid-template-columns: repeat(6, 1fr); 
+  }
+
+  .movie-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .movie-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+
+/* /////////////////////////////////////////////// */
+
+/* .movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--grid-gap);
+  padding: var(--grid-gap);
+}
+
+.movie-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-info {
+  padding: 10px;
+}
+
+.movie-info h3 {
+  margin-bottom: 5px;
+} */

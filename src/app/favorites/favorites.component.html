@@ -1,10 +1,11 @@
-<div class="movie-grid">
-  <div *ngFor="let movie of movies" class="movie-card">
+<div class="favorites-grid">
+  <div *ngFor="let movie of favoriteMovies" class="movie-card">
     <img [src]="getMovieImageUrl(movie)" alt="{{movie.title}}">
     <div class="movie-info">
       <h3>{{ movie.title }}</h3>
       <p>Release Date: {{ movie.release_date }}</p>
-      <button class="btn btn--outline" (click)="addToFavorites(movie)">Add to Favorites</button>
+      <button (click)="removeFromFavorites(movie)">Remove from Favorites</button>
     </div>
   </div>
 </div>
+

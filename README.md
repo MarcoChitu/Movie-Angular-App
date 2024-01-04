@@ -1,27 +1,34 @@
 # MovieAngularApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
+## 🚀 Getting Started
 
-## Development server
+Angular Movies is a simple web app that consumes The Movie DB API, it can show you interesting data about popular movies and series
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+See **Installing** for steps to make it work in your local environment.
 
-## Code scaffolding
+## 📋 Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* <a href="https://nodejs.org/es/" target="_blank">Node JS</a> - You need it to use npm
+* <a href="https://angular.io/cli" target="_blank">Angular CLI</a> - Command-line interface tool needed to manage Angular applications
+* <a href="https://developers.themoviedb.org/3" target="_blank">The Movie DB API</a> - Click the link to get your own API
 
-## Build
+## 🔧 Installing
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+git clone https://github.com/MarcoChitu/Movie-Angular-App.git
+cd Movie-Angular-App
+npm install
+ng add @angular/pwa
+ng serve
 
-## Running unit tests
+Navigate to `http://localhost:4200/`
+```
+Go to Movie-Angular-App\src\environments and change ```environments.ts``` and ```environments.prod.ts``` theMovieDBApi object prop with your own The Movie DB API Key.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
+## 📄 More
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+---
+🧑‍💻 Developed by Marco Chitu(https://github.com/MarcoChitu)

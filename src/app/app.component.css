@@ -1,0 +1,63 @@
+/* General Styling - Optimized for Mobile */
+.app-container {
+  font-family: 'Arial', sans-serif;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+}
+
+/* Navigation Bar Styling */
+.navbar {
+  background: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.navbar ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar ul li {
+  margin: 5px 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Footer Styling */
+.app-footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: auto; /* Push footer to the bottom */
+}
+
+/* Responsive Layout - Larger Screens */
+@media (min-width: 768px) {
+  .app-container {
+    padding: 20px;
+  }
+
+  .navbar ul {
+    flex-direction: row;
+  }
+
+  .navbar ul li {
+    display: inline;
+    margin: 0 20px;
+  }
+
+  .app-footer {
+    padding: 20px 0;
+  }
+}
